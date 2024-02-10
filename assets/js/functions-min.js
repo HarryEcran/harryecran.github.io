@@ -1056,7 +1056,7 @@
     var o = !0,
         a = null;
     $(this).on("mousewheel DOMMouseScroll", function(e) {
-        if (!$(".outer-nav").hasClass("is-vis")) {
+        if (!$(".outer-nav").hasClass("is-vis") && !$('body').hasClass('modal-open')) {
             e.preventDefault();
             var i = e.originalEvent.wheelDelta ? -e.originalEvent.wheelDelta : 20 * e.originalEvent.detail;
             i > 50 && o ? (o = !1, clearTimeout(a), a = setTimeout(function() {
@@ -1090,4 +1090,20 @@
     }), $(document).keyup(function(e) {
         $(".outer-nav").hasClass("is-vis") || (e.preventDefault(), t(e))
     }), n(), s(), r()
+
+    // Function to open modal
+    $('.open-modal').click(function(){
+        $('#modal').css('display', 'block');
+        $('body').addClass('modal-open'); // Add a class to the body to prevent scrolling
+      });
+  
+      // Function to close modal
+      $('.modal-close').click(function(){
+        $('#modal').css('display', 'none');
+        $('body').removeClass('modal-open'); // Remove the class to allow scrolling again
+      });
+  
+      // Prevent the modal from opening automatically on page load
+      $('#modal').css('display', 'none');
+      $('body').removeClass('modal-open');
 });

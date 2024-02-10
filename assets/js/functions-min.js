@@ -1102,8 +1102,4 @@
         $('#modal').css('display', 'none');
         $('body').removeClass('modal-open'); // Remove the class to allow scrolling again
       });
-  
-      // Prevent the modal from opening automatically on page load
-      $('#modal').css('display', 'none');
-      $('body').removeClass('modal-open');
 });
